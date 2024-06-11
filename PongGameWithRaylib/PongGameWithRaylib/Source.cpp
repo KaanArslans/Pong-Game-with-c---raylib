@@ -32,7 +32,55 @@ void update() {
 
 };
 
+
+class Paddle {
+
+public:
+float x, y;
+int width, height;
+int speed;
+
+void draw(){
+
+
+     DrawRectangle(x, y, width, height, WHITE);
+}
+void update() {
+    if (IsKeyDown(KEY_UP)) {
+        y -= speed;
+
+
+   }
+    if (IsKeyDown(KEY_DOWN)) {
+        y += speed;
+
+
+    }
+    if (y <= 0) {
+
+        y = 0;
+    }
+    if (y + height >= GetScreenHeight()) {
+        y = GetScreenHeight() - height;
+
+    }
+
+
+}
+
+
+
+
+};
+
+
+
+
+
+
 Ball ball;
+Paddle player;
+
 
 
 int main() {
@@ -49,6 +97,13 @@ int main() {
     ball.speed_x = 7;
     ball.speed_y = 7;
 
+    player.width = 25;
+    player.height = 120;
+    player.x = screen_width - player.width - 10;
+    player.y = screen_height / 2 - player.height / 2;
+    player.speed = 6;
+
+
 
     while (WindowShouldClose() == false) {
 
@@ -57,11 +112,12 @@ int main() {
         
         BeginDrawing();
         ball.update();
+        player.update();
         ClearBackground(BLACK);
         DrawLine(screen_width / 2, 0, screen_width / 2, screen_height, WHITE);
         ball.draw();
         DrawRectangle(10, screen_height/2-60, 25, 120, WHITE);
-        DrawRectangle(screen_width-35, screen_height / 2 - 60, 25, 120, WHITE);
+        player.draw();
         EndDrawing();
 
 
