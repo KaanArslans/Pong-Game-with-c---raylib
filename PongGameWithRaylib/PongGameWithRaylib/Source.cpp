@@ -2,173 +2,144 @@
 #include <raylib.h>
 
 using namespace std;
+
+// Global scores
 int player_score = 0;
 int cpu_score = 0;
 
-
+// Ball class definition
 class Ball {
-
 public:
-float x, y;
-int speed_x, speed_y;
-int radius;
-void draw() {
-    DrawCircle(x, y, radius, WHITE);
+    float x, y;
+    int speed_x, speed_y;
+    int radius;
 
-}
-
-void update() {
-    x += speed_x;
-    y += speed_y;
-    if (y + radius >= GetScreenHeight() || y-radius<=0) {
-        speed_y *= -1;
-
-    }
-    if (x + radius >= GetScreenWidth() || x - radius <= 0) {
-        speed_x *= -1;
-
+    void draw() {
+        DrawCircle(x, y, radius, WHITE);
     }
 
-}
+    void update() {
+        x += speed_x;
+        y += speed_y;
 
+        // Bounce off top and bottom walls
+        if (y + radius >= GetScreenHeight() || y - radius <= 0) {
+            speed_y *= -1;
+        }
 
+        // Bounce off left and right walls
+        if (x + radius >= GetScreenWidth() || x - radius <= 0) {
+            speed_x *= -1;
+        }
+    }
 };
 
-
+// Paddle class definition
 class Paddle {
-
-
 protected:
-   void limitMovement() {
-
-       if (y <= 0) {
-
-           y = 0;
-       }
-       if (y + height >= GetScreenHeight()) {
-           y = GetScreenHeight() - height;
-
-       }
-
-
+    void limitMovement() {
+        if (y <= 0) {
+            y = 0;
+        }
+        if (y + height >= GetScreenHeight()) {
+            y = GetScreenHeight() - height;
+        }
     }
+
 public:
-float x, y;
-int width, height;
-int speed;
+    float x, y;
+    int width, height;
+    int speed;
 
-void draw(){
-
-
-     DrawRectangle(x, y, width, height, WHITE);
-}
-void update() {
-    if (IsKeyDown(KEY_UP)) {
-        y -= speed;
-
-
-   }
-    if (IsKeyDown(KEY_DOWN)) {
-        y += speed;
-
-
+    void draw() {
+        DrawRectangle(x, y, width, height, WHITE);
     }
-    limitMovement();
 
-
-}
-
-
-
-
+    void update() {
+        if (IsKeyDown(KEY_UP)) {
+            y -= speed;
+        }
+        if (IsKeyDown(KEY_DOWN)) {
+            y += speed;
+        }
+        limitMovement();
+    }
 };
 
-
-
-class CpuPaddle :public Paddle {
-
+// CPU Paddle class definition
+class CpuPaddle : public Paddle {
 public:
     void update(int ball_y) {
         if (y + height / 2 > ball_y) {
-            y = y - speed;
+            y -= speed;
         }
         if (y + height / 2 <= ball_y) {
-            y = y + speed;
+            y += speed;
         }
-
         limitMovement();
     }
-    
-
-
 };
 
-
+// Game objects
 Ball ball;
 Paddle player;
 CpuPaddle cpu;
 
-
 int main() {
-
     cout << "Starting the game" << endl;
     const int screen_width = 1280;
     const int screen_height = 800;
 
-    InitWindow(screen_width, screen_height, "My pong game");
+    InitWindow(screen_width, screen_height, "My Pong Game");
     SetTargetFPS(60);
+
+    // Initialize ball
     ball.radius = 20;
     ball.x = screen_width / 2;
     ball.y = screen_height / 2;
     ball.speed_x = 7;
     ball.speed_y = 7;
 
+    // Initialize player paddle
     player.width = 25;
     player.height = 120;
     player.x = screen_width - player.width - 10;
     player.y = screen_height / 2 - player.height / 2;
     player.speed = 6;
 
-    cpu.height = 120;
+    // Initialize CPU paddle
     cpu.width = 25;
+    cpu.height = 120;
     cpu.x = 10;
     cpu.y = screen_height / 2 - cpu.height / 2;
     cpu.speed = 6;
 
-    while (WindowShouldClose() == false) {
-
-
-
-        
-        BeginDrawing();
-
+    // Game loop
+    while (!WindowShouldClose()) {
+        // Update game objects
         ball.update();
         player.update();
         cpu.update(ball.y);
-        if (CheckCollisionCircleRec(Vector2{ ball.x,ball.y }, ball.radius, Rectangle{ player.x,player.y,static_cast<float>(player.width),static_cast<float>(player.height) })) {
+
+        // Check collisions with paddles
+        if (CheckCollisionCircleRec(Vector2{ ball.x, ball.y }, ball.radius, Rectangle{ player.x, player.y, static_cast<float>(player.width), static_cast<float>(player.height) })) {
             ball.speed_x *= -1;
-
         }
-        if (CheckCollisionCircleRec(Vector2{ ball.x,ball.y }, ball.radius, Rectangle{ cpu.x,cpu.y,static_cast<float>(cpu.width),static_cast<float>(cpu.height) })) {
+        if (CheckCollisionCircleRec(Vector2{ ball.x, ball.y }, ball.radius, Rectangle{ cpu.x, cpu.y, static_cast<float>(cpu.width), static_cast<float>(cpu.height) })) {
             ball.speed_x *= -1;
-
         }
 
-
+        // Drawing
+        BeginDrawing();
         ClearBackground(BLACK);
         DrawLine(screen_width / 2, 0, screen_width / 2, screen_height, WHITE);
         ball.draw();
         cpu.draw();
         player.draw();
         EndDrawing();
-
-
     }
 
-
-
-
-
+    // Close the window
     CloseWindow();
     return 0;
 }
