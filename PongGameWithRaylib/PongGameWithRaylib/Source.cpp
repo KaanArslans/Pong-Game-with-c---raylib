@@ -2,6 +2,8 @@
 #include <raylib.h>
 
 using namespace std;
+int player_score = 0;
+int cpu_score = 0;
 
 
 class Ball {

@@ -1,16 +1,16 @@
 ﻿  Source.cpp
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(14,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(14,19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(14,16): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(47,34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(61,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(61,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(126,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(127,34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(133,31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(145,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(146,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(150,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(16,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(16,19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(16,16): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(49,34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(63,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(63,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(128,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(129,34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(135,31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(147,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(148,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\PongGameWithRaylib\Source.cpp(152,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   PongGameWithRaylib.vcxproj -> C:\Users\Kenik\OneDrive\Belgeler\Pong-Game-with-c---raylib\PongGameWithRaylib\x64\Debug\PongGameWithRaylib.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.
