@@ -35,6 +35,21 @@ void update() {
 
 class Paddle {
 
+
+protected:
+   void limitMovement() {
+
+       if (y <= 0) {
+
+           y = 0;
+       }
+       if (y + height >= GetScreenHeight()) {
+           y = GetScreenHeight() - height;
+
+       }
+
+
+    }
 public:
 float x, y;
 int width, height;
@@ -56,14 +71,7 @@ void update() {
 
 
     }
-    if (y <= 0) {
-
-        y = 0;
-    }
-    if (y + height >= GetScreenHeight()) {
-        y = GetScreenHeight() - height;
-
-    }
+    limitMovement();
 
 
 }
@@ -75,12 +83,28 @@ void update() {
 
 
 
+class CpuPaddle :public Paddle {
 
+public:
+    void update(int ball_y) {
+        if (y + height / 2 > ball_y) {
+            y = y - speed;
+        }
+        if (y + height / 2 <= ball_y) {
+            y = y + speed;
+        }
+
+        limitMovement();
+    }
+    
+
+
+};
 
 
 Ball ball;
 Paddle player;
-
+CpuPaddle cpu;
 
 
 int main() {
@@ -103,7 +127,11 @@ int main() {
     player.y = screen_height / 2 - player.height / 2;
     player.speed = 6;
 
-
+    cpu.height = 120;
+    cpu.width = 25;
+    cpu.x = 10;
+    cpu.y = screen_height / 2 - cpu.height / 2;
+    cpu.speed = 6;
 
     while (WindowShouldClose() == false) {
 
@@ -113,10 +141,11 @@ int main() {
         BeginDrawing();
         ball.update();
         player.update();
+        cpu.update(ball.y);
         ClearBackground(BLACK);
         DrawLine(screen_width / 2, 0, screen_width / 2, screen_height, WHITE);
         ball.draw();
-        DrawRectangle(10, screen_height/2-60, 25, 120, WHITE);
+        cpu.draw();
         player.draw();
         EndDrawing();
 
