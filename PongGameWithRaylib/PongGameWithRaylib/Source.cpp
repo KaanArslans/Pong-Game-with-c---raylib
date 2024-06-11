@@ -139,9 +139,20 @@ int main() {
 
         
         BeginDrawing();
+
         ball.update();
         player.update();
         cpu.update(ball.y);
+        if (CheckCollisionCircleRec(Vector2{ ball.x,ball.y }, ball.radius, Rectangle{ player.x,player.y,static_cast<float>(player.width),static_cast<float>(player.height) })) {
+            ball.speed_x *= -1;
+
+        }
+        if (CheckCollisionCircleRec(Vector2{ ball.x,ball.y }, ball.radius, Rectangle{ cpu.x,cpu.y,static_cast<float>(cpu.width),static_cast<float>(cpu.height) })) {
+            ball.speed_x *= -1;
+
+        }
+
+
         ClearBackground(BLACK);
         DrawLine(screen_width / 2, 0, screen_width / 2, screen_height, WHITE);
         ball.draw();
